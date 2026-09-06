@@ -1,0 +1,45 @@
+{
+  "name": "env-vault",
+  "version": "1.0.0",
+  "description": "Zero-dependency CLI to manage, encrypt, switch, and inject .env profiles without leaking plain-text secrets to disk or Git.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "bin": {
+    "env-vault": "dist/src/index.js"
+  },
+  "files": [
+    "dist/src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "bundle": "node scripts/bundle.mjs",
+    "test": "npm run build && node --test \"dist/tests/**/*.test.js\"",
+    "smoke": "npm run build && node dist/src/index.js --version",
+    "sea": "node scripts/sea.mjs"
+  },
+  "keywords": [
+    "env",
+    "environments",
+    "dotenv",
+    "secrets",
+    "cli",
+    "encryption",
+    "aes-256-gcm",
+    "pbkdf2",
+    "zero-dependency"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/env-vault.git"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "esbuild": "^0.28.2",
+    "postject": "^1.0.0-alpha.6",
+    "typescript": "^7.0.2"
+  }
+}

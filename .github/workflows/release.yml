@@ -1,0 +1,64 @@
+name: release
+
+# Builds and attaches multi-platform single-file binaries to GitHub Releases.
+# Trigger on tag push, e.g.:  git tag v1.0.0 && git push origin v1.0.0
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: build (${{ matrix.cos }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            cos: linux
+            asset: env-vault-linux-x64
+          - os: macos-latest
+            cos: darwin
+            asset: env-vault-darwin-x64
+          - os: windows-latest
+            cos: win
+            asset: env-vault-win-x64.exe
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Bundle single-file runtime (esbuild)
+        run: npm run bundle
+
+      - name: Build SEA executable
+        run: node scripts/sea.mjs "${{ matrix.asset }}"
+
+      - name: Smoke test binary
+        shell: bash
+        run: |
+          ./${{ matrix.asset }} --version
+          ./${{ matrix.asset }} --help >/dev/null && echo "help ok"
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.asset }}
+          generate_release_notes: true

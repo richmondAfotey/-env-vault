@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local SEA test builds
+/env-vault-*
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# env-vault (also auto-managed by `env-vault init`)
+.env*
+!.envvault/
+!.envvault/*.enc
+!.env.example
