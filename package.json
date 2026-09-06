@@ -1,5 +1,5 @@
 {
-  "name": "@richmondafotey/env-vault",
+  "name": "env-vault",
   "version": "1.0.0",
   "description": "Zero-dependency CLI to manage, encrypt, switch, and inject .env profiles without leaking plain-text secrets to disk or Git.",
   "license": "MIT",
@@ -34,13 +34,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/richmondAfotey/env-vault.git"
+    "url": "git+https://github.com/richmondAfotey/-env-vault.git"
   },
-  "homepage": "https://github.com/richmondAfotey/env-vault#readme",
+  "homepage": "https://github.com/richmondAfotey/-env-vault#readme",
   "bugs": {
-    "url": "https://github.com/richmondAfotey/env-vault/issues"
+    "url": "https://github.com/richmondAfotey/-env-vault/issues"
   },
-  "author": "Jones Ampratwum",
+  "author": "Richmond Afotey ",
   "devDependencies": {
     "@types/node": "^26.4.1",
     "esbuild": "^0.28.2",
