@@ -19,8 +19,7 @@
     "bundle": "node scripts/bundle.mjs",
     "test": "npm run build && node --test \"dist/tests/**/*.test.js\"",
     "smoke": "npm run build && node dist/src/index.js --version",
-    "sea": "node scripts/sea.mjs",
-    "prepare": "echo 'dist/ already built; skipping build step'"
+    "sea": "node scripts/sea.mjs"
   },
   "keywords": [
     "env",
@@ -42,9 +41,6 @@
     "url": "https://github.com/richmondAfotey/-env-vault/issues"
   },
   "author": "Richmond Afotey ",
-  "allowScripts": {
-    "@richmondafotey/env-vault": true
-  },
   "devDependencies": {
     "@types/node": "^26.4.1",
     "esbuild": "^0.28.2",
