@@ -42,6 +42,9 @@
     "url": "https://github.com/richmondAfotey/-env-vault/issues"
   },
   "author": "Richmond Afotey ",
+  "allowScripts": {
+    "@richmondafotey/env-vault": true
+  },
   "devDependencies": {
     "@types/node": "^26.4.1",
     "esbuild": "^0.28.2",
