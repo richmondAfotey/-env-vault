@@ -41,11 +41,14 @@ history.
 ## Installation
 
 ```bash
-# Global install from this repo / package
-npm install -g .
+# Global install from npm (once published)
+npm install -g @richmondafotey/env-vault
 
-# Use without installing
-npx . --help
+# Global install from GitHub (current)
+npm install -g github:richmondAfotey/-env-vault
+
+# Use without installing (from GitHub)
+npx github:richmondAfotey/-env-vault --help
 
 # Or run the compiled CLI directly (faster iteration while developing)
 node dist/src/index.js --help
