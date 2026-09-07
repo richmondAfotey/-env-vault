@@ -1,5 +1,5 @@
 {
-  "name": "env-vault",
+  "name": "@richmondafotey/env-vault",
   "version": "1.0.0",
   "description": "Zero-dependency CLI to manage, encrypt, switch, and inject .env profiles without leaking plain-text secrets to disk or Git.",
   "license": "MIT",
@@ -19,7 +19,8 @@
     "bundle": "node scripts/bundle.mjs",
     "test": "npm run build && node --test \"dist/tests/**/*.test.js\"",
     "smoke": "npm run build && node dist/src/index.js --version",
-    "sea": "node scripts/sea.mjs"
+    "sea": "node scripts/sea.mjs",
+    "prepare": "echo 'dist/ already built; skipping build step'"
   },
   "keywords": [
     "env",
